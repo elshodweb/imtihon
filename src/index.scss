@@ -1,0 +1,13 @@
+@import "./assets/sass/main.scss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+   font-family: 'Roboto Mono'; 
+   background: #fff;
+}
+.container {
+   @apply max-w-[1300px] px-[10px] mx-auto my-0;
+}

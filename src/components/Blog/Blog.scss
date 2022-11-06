@@ -1,0 +1,11 @@
+.blog{
+   padding-top: 84px;
+   display: flex;
+   align-items: flex-start;
+   flex-direction: column;
+   justify-content: flex-start;
+   min-height: 100vh;   
+}
+.list,.single{
+   flex: 1 0 100%;
+}

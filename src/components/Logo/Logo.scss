@@ -1,0 +1,24 @@
+
+.logo__link {
+   @apply flex justify-start items-center;
+   &>strong {
+      @apply ml-2;
+      font-family: 'Roboto Mono';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 25px;
+      line-height: 33px;
+      color: #000000;
+   }
+}
+@media screen and (max-width:567px) {
+   .logo__link {
+      strong {
+         font-size: 14px;
+      }
+      img {
+         width: 33px;
+         height: 33px;
+      }
+   }
+}

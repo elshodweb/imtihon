@@ -1,0 +1,14 @@
+.header{
+   position: fixed;
+   top: 0;left: 0;
+   width: 100%;
+   padding-top: 26px;
+   background: #fff;
+}
+.header__wrapper{
+}
+.container .header__row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
