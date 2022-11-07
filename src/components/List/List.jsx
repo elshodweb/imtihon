@@ -12,17 +12,25 @@ import { useEffect } from 'react'
 import axios from '../../lib/axios'
 import { useSelector, useDispatch } from 'react-redux'
 import { getData } from '../../store/dataSlice'
+import { useState } from 'react'
+import Spin from "./../../assets/img/Spin.gif"
+
 function List() {
    const dispatch = useDispatch()
    const data = useSelector(state => state.data.data)
    const { category } = useParams();
    const navigate = useNavigate();
+   const [load, setLoad] = useState(false)
    useEffect(() => {
+      setLoad(true)
       if (!category) {
          navigate("/home/1")
       } else {
          axios.get(`/category/${category}/posts`)
-            .then(({ data }) => dispatch(getData({ data })))
+            .then(({ data }) => {
+               dispatch(getData({ data }))
+               setLoad(false)
+            })
             .catch(() => navigate("/*"))
       }
    }, [category, navigate, dispatch])
@@ -67,25 +75,29 @@ function List() {
                   </ul>
                </aside>
                <div className="posts">
-                  <h2 className="posts__title">Recent Posts</h2>
+                  <h2 className="posts__title"><span>Recent Posts</span> {load && <span className='loading'>| <img src={Spin} alt="spin" /> Loading...</span>}</h2>
                   <div className="posts__wrapper">
+
                      {
                         data.length > 0 && data.map((item) => <Outlet key={item.id} context={[item]} />)
                      }
                   </div>
-                  <div className="pagination">
-                     <button>
-                        <img src={left} alt="left" />
-                     </button>
-                     <a href="/">1</a>
-                     <a href="/">2</a>
-                     <a href="/">3</a>
-                     <a href="/">4</a>
-                     <a href="/">5</a>
-                     <button>
-                        <img src={right} alt="right" />
-                     </button>
-                  </div>
+                  {
+                     data.length > 0 &&
+                     <div className="pagination">
+                        <button>
+                           <img src={left} alt="left" />
+                        </button>
+                        <a href="/">1</a>
+                        <a href="/">2</a>
+                        <a href="/">3</a>
+                        <a href="/">4</a>
+                        <a href="/">5</a>
+                        <button>
+                           <img src={right} alt="right" />
+                        </button>
+                     </div>
+                  }
                </div>
             </div>
          </div>

@@ -10,6 +10,7 @@ import time from "./../../assets/icons/time.svg"
 import { useDispatch } from 'react-redux';
 import { getData } from '../../store/dataSlice';
 import * as dayjs from 'dayjs';
+import Spin from "./../../assets/img/Spin.gif"
 import { toCapitalize } from '../../lib/toCapitalize';
 function SinglePost() {
    const { id, category } = useParams();
@@ -18,22 +19,28 @@ function SinglePost() {
    const data = useSelector(state => state.data.data);
    const categories = useSelector(state => state.category.category)
    const [singleData, setSingleData] = useState(null)
+   const [load, setLoad] = useState(false)
+   useEffect(() => {
+      setLoad(true)
+      axios.get(`/category/${category}/posts/${id}`)
+         .then(({ data }) => {
+            setSingleData(data)
+            setLoad(false)
+         })
+         .catch(() => navigate("/*"))
+   }, [category, navigate, id]);
    useEffect(() => {
       axios.get(`/category/${category}/posts`)
          .then(({ data }) => dispatch(getData({ data })))
          .catch((err) => navigate("/*"))
    }, [category, navigate, dispatch]);
-   useEffect(() => {
-      axios.get(`/category/${category}/posts/${id}`)
-         .then(({ data }) => setSingleData(data))
-         .catch(() => navigate("/*"))
-   }, [category, navigate, id]);
    const getCategoryName = (id) => {
       let name = categories[+id - 1].name
       return (toCapitalize(name))
    }
    return (
       <div className='single'>
+         {load && <h2 className="single__loading"> <img src={Spin} alt="spin" /> Loading...</h2>}
          {
             singleData && (
                <div className='container'>

@@ -19,7 +19,7 @@ function Nav() {
          })
       .catch(err => console.log(err))
       .finally()
-   }, [])
+   }, [dispatch])
    return (
       <div className='nav'>
          <ul className="nav__list">

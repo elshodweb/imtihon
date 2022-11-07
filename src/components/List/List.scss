@@ -65,6 +65,18 @@
    line-height: 36px;
    /* identical to box height, or 150% */
    color: #474747;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   gap: 20px;
+}
+.loading{
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   img{
+      margin: 0 20px;
+   }
 }
 .posts__wrapper{
    margin-bottom: 63px;
