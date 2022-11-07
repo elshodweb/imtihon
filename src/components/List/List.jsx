@@ -6,7 +6,7 @@ import github from "./../../assets/icons/github.svg"
 import twiter from "./../../assets/icons/twiter.svg"
 import linkedin from "./../../assets/icons/linkedin.svg"
 import "./List.scss"
-import { Outlet, } from 'react-router-dom'
+import { Outlet, useNavigate, } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import axios from '../../lib/axios'
@@ -16,12 +16,16 @@ function List() {
    const dispatch = useDispatch()
    const data = useSelector(state => state.data.data)
    const { category } = useParams();
+   const navigate = useNavigate();
    useEffect(() => {
-      axios.get(`/category/${category}/posts`)
-         .then(({ data }) => dispatch(getData({ data })))
-         .catch((err) => console.log(err))
-         .finally()
-   }, [category, dispatch])
+      if (!category) {
+         navigate("/home/1")
+      } else {
+         axios.get(`/category/${category}/posts`)
+            .then(({ data }) => dispatch(getData({ data })))
+            .catch(() => navigate("/*"))
+      }
+   }, [category, navigate, dispatch])
    return (
       <div className='list'>
          <div className="container">

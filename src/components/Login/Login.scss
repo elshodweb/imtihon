@@ -60,6 +60,32 @@ margin-top: 116px;
 background: #000000;
 border-radius: 3px;
 }
+.not-corect{
+position: fixed;
+   top: 30px;
+   left: (calc(50% - 160px));
+   border: 2px solid #999;
+   background: #f4f4f4;
+   border-radius: 10px;
+   padding: 20px;
+   font-weight: 600;
+   box-shadow: 4px 5px 10px 0 #000;
+   opacity: 0;
+   
+   transition: all .2s ease-in-out;
+   visibility: hidden;
+}
+
+.not-corect.active{
+   opacity: 1;
+   visibility: visible;
+   -webkit-animation-name: shake;
+   animation-name: shake;
+   -webkit-animation-duration: 1s;
+   animation-duration: 1s;
+   -webkit-animation-fill-mode: both;
+   animation-fill-mode: both;
+}
 @media screen and (max-width:567px) {
    .login__logo{
       strong{
@@ -82,3 +108,32 @@ border-radius: 3px;
    }
 
 }
+
+   @-webkit-keyframes shake {
+   0%, 100% {
+   -webkit-transform: translate3d(0, 0, 0);
+   transform: translate3d(0, 0, 0);
+   }
+   10%, 30%, 50%, 70%, 90% {
+   -webkit-transform: translate3d(-10px, 0, 0);
+   transform: translate3d(-10px, 0, 0);
+   }
+   20%, 40%, 60%, 80% {
+   -webkit-transform: translate3d(10px, 0, 0);
+   transform: translate3d(10px, 0, 0);
+   }
+   }
+   @keyframes shake {
+   0%, 100% {
+   -webkit-transform: translate3d(0, 0, 0);
+   transform: translate3d(0, 0, 0);
+   }
+   10%, 30%, 50%, 70%, 90% {
+   -webkit-transform: translate3d(-10px, 0, 0);
+   transform: translate3d(-10px, 0, 0);
+   }
+   20%, 40%, 60%, 80% {
+   -webkit-transform: translate3d(10px, 0, 0);
+   transform: translate3d(10px, 0, 0);
+   }
+   } 

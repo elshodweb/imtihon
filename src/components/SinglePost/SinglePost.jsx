@@ -1,29 +1,37 @@
 import React, { useEffect } from 'react'
+import "./SinglePost.scss";
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Outlet, useParams } from 'react-router-dom'
+import { Outlet, useNavigate, useParams } from 'react-router-dom'
 import axios from '../../lib/axios';
 import clap from "./../../assets/icons/clap.svg"
 import share from "./../../assets/icons/share.svg"
 import time from "./../../assets/icons/time.svg"
-import "./SinglePost.scss";
 import { useDispatch } from 'react-redux';
 import { getData } from '../../store/dataSlice';
+import * as dayjs from 'dayjs';
+import { toCapitalize } from '../../lib/toCapitalize';
 function SinglePost() {
    const { id, category } = useParams();
-   const dispatch = useDispatch()
+   const dispatch = useDispatch();
+   const navigate = useNavigate()
    const data = useSelector(state => state.data.data);
+   const categories = useSelector(state => state.category.category)
+   const [singleData, setSingleData] = useState(null)
    useEffect(() => {
       axios.get(`/category/${category}/posts`)
          .then(({ data }) => dispatch(getData({ data })))
-         .catch((err) => console.log(err))
-         .finally()
-   }, [category, dispatch])
-   const [singleData, setSingleData] = useState(null)
+         .catch((err) => navigate("/*"))
+   }, [category, navigate, dispatch]);
    useEffect(() => {
       axios.get(`/category/${category}/posts/${id}`)
          .then(({ data }) => setSingleData(data))
-   }, [category, id])
+         .catch(() => navigate("/*"))
+   }, [category, navigate, id]);
+   const getCategoryName = (id) => {
+      let name = categories[+id - 1].name
+      return (toCapitalize(name))
+   }
    return (
       <div className='single'>
          {
@@ -41,10 +49,10 @@ function SinglePost() {
                         </button>
                      </div>
                      <div className="content">
-                        <div className="content__category">{singleData.categoryId}</div>
+                        <div className="content__category">{getCategoryName(singleData.categoryId)}</div>
                         <h2 className="content__title">{singleData.title}</h2>
                         <div className="content__info">
-                           <time className="content__data">{singleData.createdAt}</time>
+                           <time className="content__data">{dayjs(singleData.createdAt).format("MMMM DD.YYYY")}</time>
                            |
                            <div className="content__timer">
                               <img width={16} height={16} src={time} alt="time" />

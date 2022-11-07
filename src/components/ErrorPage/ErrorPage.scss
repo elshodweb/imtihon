@@ -1,0 +1,44 @@
+.error {
+   padding-top: 70px;padding-bottom: 100px;
+   width: 100%;
+   text-align: center;
+   .container {
+      margin: 0 auto;
+   }
+}
+.error__img {
+   display: block;
+   margin: 0 auto;
+   margin-bottom: 50px;
+}
+.error__title {
+   font-weight: 400;
+   font-size: 24px;
+   line-height: 36px;
+   /* identical to box height, or 150% */
+   /* Main / Primary 2 */
+   color: #474747;
+   margin-bottom: 20px;
+}
+.error__descr {
+   font-weight: 300;
+   font-size: 16px;
+   line-height: 24px;
+   /* or 150% */
+   text-align: center;
+   color: #474747;
+   margin-bottom: 40px;
+}
+.error__link {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 32px;
+   /* or 200% */
+   text-align: center;
+   /* Main / Primary 2 */
+   color: #474747;
+   gap: 16px;
+}

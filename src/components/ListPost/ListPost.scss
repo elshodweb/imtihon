@@ -1,7 +1,14 @@
 .post {
-   padding: 46px 0 15px;
+   padding: 46px 10px 15px;
    display: block;
    border-bottom: 1px solid #DFDFDF;
+   &:hover{
+      background: #eee;
+   }
+   &:active{
+      background: #fff;
+   }
+   
 }
 .post__row {
    display: flex;

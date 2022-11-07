@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import logo from "./../../assets/icons/logo-light.svg"
 import "./Footer.scss"
 function Footer() {
@@ -6,10 +7,10 @@ function Footer() {
       <footer className='footer'>
          <div className="container">
             <div className="footer__row">
-               <div className="footer__logo">
+               <Link to={"/home/1"} className="footer__logo">
                   <img src={logo} alt="logo" />
                   <span>Bobur</span>
-               </div>
+               </Link>
                <div className="footer__sections">
                   <div className="footer__section">
                      <div className="footer__section-name">

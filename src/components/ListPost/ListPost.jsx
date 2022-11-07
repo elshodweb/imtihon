@@ -2,13 +2,21 @@ import React from 'react';
 import timer from "./../../assets/icons/time.svg";
 import "./ListPost.scss";
 import { Link, useOutletContext } from 'react-router-dom';
+import dayjs from 'dayjs';
+import { useSelector } from 'react-redux';
+import { toCapitalize } from '../../lib/toCapitalize';
 function ListPost() {
+   const categories = useSelector(state=>state.category.category)
    const [item] = useOutletContext();
+   const getCategoryName=(id)=>{
+      let name =categories[+id - 1].name
+      return(toCapitalize(name))
+   }
    return (
-      <Link to={"/posts/" + item.categoryId + "/" + item.id} className='post'>
+      <Link to={"/home/" + item.categoryId + "/" + item.id} className='post'>
          <div className="post__row">
-            <time className="post__data">{item.createdAt}</time>
-            <div className="post__category">{item.categoryId}</div>
+            <time className="post__data">{dayjs(item.createdAt).format("MMMM DD.YYYY")}</time>
+            <div className="post__category">{getCategoryName(item.categoryId)}</div>
          </div>
          <div className="post__name">
             {item.title}
