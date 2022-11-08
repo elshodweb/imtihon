@@ -53,8 +53,6 @@ function Login() {
                   <input value={login.email} onChange={(e) => setLogin({ ...login, email: e.target.value })} type="text" placeholder="Login" className="form__input" />
                   <input value={login.password} onChange={(e) => setLogin({ ...login, password: e.target.value })} type="password" placeholder="Password" className="form__input" />
                   <button className="form__btn">Submit</button>
-                  <p>Email: eve.holt@reqres.in</p>
-                  <p>Password: cityslicka</p>
                </form>
             </div>
          </div>
