@@ -1,14 +1,25 @@
-.header{
+.header {
    position: fixed;
-   top: 0;left: 0;
+   top: 0;
+   left: 0;
    width: 100%;
    padding-top: 26px;
    background: #fff;
 }
-.header__wrapper{
+.header__wrapper {}
+.container .header__row {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
 }
-.container .header__row{
-  display: flex;
-  align-items: center;
-  justify-content: space-between; 
+@media screen and (max-width:992px) {
+   .header {
+      padding-top: 16px;
+   }
+}
+@media screen and (max-width:550px) {
+   .header{
+      padding: 15px 0;
+      padding-bottom: 80px;
+   }
 }

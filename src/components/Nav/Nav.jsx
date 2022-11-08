@@ -10,6 +10,7 @@ import { setCategory } from "../../store/categorySlice";
 function Nav() {
    const [navs, setNavs] = useState([])
    const dispatch = useDispatch();
+   const [isOpenNav,setIsOpenNav]= useState(false)
    useEffect(() => {
       axios.get("/category")
       .then(({data}) =>{
@@ -20,12 +21,19 @@ function Nav() {
       .catch(err => console.log(err))
       .finally()
    }, [dispatch])
+   const openClose =()=>{
+      setIsOpenNav(!isOpenNav);
+      console.log(isOpenNav);
+   }
    return (
       <div className='nav'>
-         <ul className="nav__list">
+         <button onClick={openClose} className={`menu-btn ${isOpenNav && "active"}`}>
+            <span></span>
+         </button>
+         <ul className={`nav__list ${isOpenNav && "open"}`}>
             {
                navs.length>0 && navs.map((item)=>{
-                  return(<Link key={item.id} to={"/home/"+item.id} className="nav__link"><li className="nav__item">{toCapitalize(item.name)}</li></Link>)
+                  return(<Link onClick={()=>{isOpenNav && setIsOpenNav(false)}} key={item.id} to={"/home/"+item.id} className="nav__link"><li className="nav__item">{toCapitalize(item.name)}</li></Link>)
                })
             }
             </ul>

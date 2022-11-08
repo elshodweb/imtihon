@@ -59,7 +59,7 @@ function SinglePost() {
                         <div className="content__category">{getCategoryName(singleData.categoryId)}</div>
                         <h2 className="content__title">{singleData.title}</h2>
                         <div className="content__info">
-                           <time className="content__data">{dayjs(singleData.createdAt).format("MMMM DD.YYYY")}</time>
+                           <time className="content__data">{dayjs(singleData.createdAt).format("MMM DD.YYYY")}</time>
                            |
                            <div className="content__timer">
                               <img width={16} height={16} src={time} alt="time" />

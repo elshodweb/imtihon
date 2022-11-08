@@ -3,7 +3,9 @@
    width: 100%;
    text-align: center;
    .container {
+      padding: 0px 30px;
       margin: 0 auto;
+
    }
 }
 .error__img {
@@ -27,6 +29,8 @@
    /* or 150% */
    text-align: center;
    color: #474747;
+   max-width: 600px;
+margin: 0 auto;
    margin-bottom: 40px;
 }
 .error__link {
@@ -41,4 +45,12 @@
    /* Main / Primary 2 */
    color: #474747;
    gap: 16px;
+}
+@media screen and (max-width:370px) {
+   .error .container{
+      padding: 0 10px;
+   }
+   .error__title{
+      font-size: 22px;
+   }
 }

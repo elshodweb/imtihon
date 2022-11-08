@@ -17,21 +17,20 @@ function Search() {
          setDataFitered(
             (data.filter((item) => item.title.toLowerCase().includes(String(value).toLowerCase())))
          )
-      }else{
+      } else {
          setDataFitered([])
       }
    }
    const closeModal = () => {
       setValue("")
       steIsOpenModal(false)
-
       setDataFitered([])
    }
    return (
       <div className='search'>
          <form onSubmit={fitered} className="search__label">
             <input type="text" value={value} onChange={(e) => setValue(e.target.value)} placeholder='Search' className='search__input' />
-            <button >
+            <button className='search__btn' >
                <img src={search} alt="search" />
             </button>
             <div className={`modal ${isOpenModal && "active"}`}>
@@ -40,7 +39,6 @@ function Search() {
                   <button type='button' onClick={closeModal}>x</button>
                </div>
                <div className="modal__results">
-                   
                   {
                      dataFitered.length > 0 ? (dataFitered.map((item) => {
                         return (
@@ -52,7 +50,7 @@ function Search() {
                               <div className="result__descr">{item.description}</div>
                            </Link>
                         )
-                     })):"Siz qidirgan narsa topilmadi"
+                     })) : "Siz qidirgan narsa topilmadi"
                   }
                </div>
             </div>

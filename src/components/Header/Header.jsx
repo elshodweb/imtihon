@@ -9,9 +9,9 @@ function Header() {
          <div className="header__wrapper">
             <div className="container">
                <div className="header__row">
-                  <Logo />
-                  <Nav />
-                  <Search />
+                  <Logo className="header__logo"/>
+                  <Nav className="header__vav" />
+                  <Search className="header__search"/>
                </div>
             </div>
          </div>
