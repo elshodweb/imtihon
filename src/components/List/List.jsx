@@ -1,3 +1,4 @@
+import Spin from "./../../assets/img/Spin.gif"
 import React from 'react'
 import right from "./../../assets/icons/right.svg"
 import left from "./../../assets/icons/left.svg"
@@ -13,7 +14,6 @@ import axios from '../../lib/axios'
 import { useSelector, useDispatch } from 'react-redux'
 import { getData } from '../../store/dataSlice'
 import { useState } from 'react'
-import Spin from "./../../assets/img/Spin.gif"
 
 function List() {
    const dispatch = useDispatch()
