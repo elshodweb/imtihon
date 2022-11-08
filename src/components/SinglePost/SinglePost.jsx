@@ -35,8 +35,10 @@ function SinglePost() {
          .catch((err) => navigate("/*"))
    }, [category, navigate, dispatch]);
    const getCategoryName = (id) => {
-      let name = categories[+id - 1].name
-      return (toCapitalize(name))
+      if (categories.length > 0 && id) {
+         let name = categories[+id - 1].name
+         return (toCapitalize(name))
+      }
    }
    return (
       <div className='single'>
