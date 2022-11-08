@@ -6,11 +6,15 @@ import dayjs from 'dayjs';
 import { useSelector } from 'react-redux';
 import { toCapitalize } from '../../lib/toCapitalize';
 function ListPost() {
-   const categories = useSelector(state=>state.category.category)
+   const categories = useSelector(state => state.category.category)
    const [item] = useOutletContext();
-   const getCategoryName=(id)=>{
-      let name =categories[+id - 1].name
-      return(toCapitalize(name))
+   const getCategoryName = (id) => {
+      console.log(id);
+      console.log(categories);
+      if (id && categories.length > 0) {
+         let name = categories[+id - 1].name
+         return (toCapitalize(name))
+      }
    }
    return (
       <Link to={"/home/" + item.categoryId + "/" + item.id} className='post'>
