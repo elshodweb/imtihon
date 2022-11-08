@@ -9,8 +9,6 @@ function ListPost() {
    const categories = useSelector(state => state.category.category)
    const [item] = useOutletContext();
    const getCategoryName = (id) => {
-      console.log(id);
-      console.log(categories);
       if (id && categories.length > 0) {
          let name = categories[+id - 1].name
          return (toCapitalize(name))

@@ -75,7 +75,7 @@ function List() {
                   </ul>
                </aside>
                <div className="posts">
-                  <h2 className="posts__title"><span>Recent Posts</span> {load && <span className='loading'>| <img src={Spin} alt="spin" /> Loading...</span>}</h2>
+                  <h2 className="posts__title"> {load ? <span className='loading'><img src={Spin} alt="spin" /> Loading...</span>:<span>Recent Posts</span>}</h2>
                   <div className="posts__wrapper">
 
                      {

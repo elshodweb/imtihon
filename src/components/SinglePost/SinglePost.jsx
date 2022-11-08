@@ -32,7 +32,7 @@ function SinglePost() {
    useEffect(() => {
       axios.get(`/category/${category}/posts`)
          .then(({ data }) => dispatch(getData({ data })))
-         .catch((err) => navigate("/*"))
+         .catch(() => navigate("/*"))
    }, [category, navigate, dispatch]);
    const getCategoryName = (id) => {
       if (categories.length > 0 && id) {

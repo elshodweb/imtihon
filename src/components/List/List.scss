@@ -68,7 +68,9 @@
 .loading{
    display: flex;
    align-items: center;
-   justify-content: flex-start;
+   justify-content: center;
+   margin: 0 auto;
+   font-size: 32px;
    img{
       margin: 0 20px;
    }
