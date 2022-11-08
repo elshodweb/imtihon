@@ -3,9 +3,11 @@
    z-index: 2;
 }
 .logo__link {
-   @apply flex justify-start items-center;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
    &>strong {
-      @apply ml-2;
+      margin-left: 8px;
       font-family: 'Roboto Mono';
       font-style: normal;
       font-weight: 500;
