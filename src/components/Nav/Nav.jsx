@@ -23,7 +23,6 @@ function Nav() {
    }, [dispatch])
    const openClose =()=>{
       setIsOpenNav(!isOpenNav);
-      console.log(isOpenNav);
    }
    return (
       <div className='nav'>
