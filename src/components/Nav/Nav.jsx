@@ -31,7 +31,7 @@ function Nav() {
          </button>
          <ul className={`nav__list ${isOpenNav && "open"}`}>
             {
-               navs.length>0 && navs.map((item)=>{
+               navs.length>0 && (navs.slice(0,4)).map((item)=>{
                   return(<Link onClick={()=>{isOpenNav && setIsOpenNav(false)}} key={item.id} to={"/home/"+item.id} className="nav__link"><li className="nav__item">{toCapitalize(item.name)}</li></Link>)
                })
             }
