@@ -1,7 +1,7 @@
-import React from 'react'
-import img from "./../../assets/img/404.png"
-import icon from "./../../assets/icons/right.svg"
-import "./ErrorPage.scss"
+import React from 'react';
+import img from "./../../assets/img/404.png";
+import icon from "./../../assets/icons/right.svg";
+import "./ErrorPage.scss";
 function ErrorPage() {
    return (
       <div className='error'>

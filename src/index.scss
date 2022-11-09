@@ -1,7 +1,6 @@
 @import "./assets/sass/main.scss";
-
-body{
-   font-family: 'Roboto Mono'; 
+body {
+   font-family: 'Roboto Mono';
    background: #fff;
 }
 .container {
@@ -9,27 +8,15 @@ body{
    padding: 0 10px;
    margin: 0 auto;
 }
-
-
-
 ::-webkit-scrollbar {
    width: 1.2rem;
- }
- 
- /* Track */
- 
- ::-webkit-scrollbar-track {
-   background: #f1f1f1; 
- }
-  
- /* Handle */
- 
- ::-webkit-scrollbar-thumb {
-   background: #888; 
- }
- 
- /* Handle on hover */
- 
- ::-webkit-scrollbar-thumb:hover {
-   background: #555; 
- }
+}
+::-webkit-scrollbar-track {
+   background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+   background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+   background: #555;
+}

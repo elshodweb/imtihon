@@ -2,7 +2,7 @@ import React from 'react';
 import "./Logo.scss";
 import { Link } from 'react-router-dom';
 import logoImg from "./../../assets/icons/logo-black.svg";
-function Logo () {
+function Logo() {
    return (
       <div className="logo">
          <Link to="/" className="logo__link">

@@ -16,8 +16,6 @@
    font-weight: 400;
    font-size: 24px;
    line-height: 36px;
-   /* identical to box height, or 150% */
-   /* Main / Primary 2 */
    color: #474747;
 }
 .aside__descr {
@@ -65,17 +63,17 @@
    justify-content: flex-start;
    gap: 20px;
 }
-.loading{
+.loading {
    display: flex;
    align-items: center;
    justify-content: center;
    margin: 0 auto;
    font-size: 32px;
-   img{
+   img {
       margin: 0 20px;
    }
 }
-.posts__wrapper{
+.posts__wrapper {
    margin-bottom: 63px;
 }
 .pagination {
@@ -83,9 +81,9 @@
    align-items: center;
    justify-content: flex-end;
    margin-bottom: 150px;
-   a{
+   a {
       padding: 10px 8px;
-      &:hover{
+      &:hover {
          color: red;
       }
    }
@@ -101,10 +99,10 @@
    }
 }
 @media screen and (max-width:1200px) {
-.list{
-   padding-top: 40px;
-}
-   .list__row{
+   .list {
+      padding-top: 40px;
+   }
+   .list__row {
       flex-direction: column;
       justify-content: center;
       max-width: 900px;
@@ -112,24 +110,22 @@
       padding: 0 40px;
       gap: 50px;
    }
-   .aside{
+   .aside {
       margin-bottom: 40px;
    }
-   .posts{
+   .posts {
       order: -1;
    }
-   .pagination{
+   .pagination {
       margin-bottom: 10px;
    }
 }
-@media screen and (max-width:992px) {
-   
-}
+@media screen and (max-width:992px) {}
 @media screen and (max-width:550px) {
-   .list{
+   .list {
       padding-top: 80px;
    }
-   .list__row{
+   .list__row {
       padding: 0 10px;
    }
 }

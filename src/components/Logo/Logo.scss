@@ -1,4 +1,4 @@
-.logo{
+.logo {
    position: relative;
    z-index: 2;
 }
@@ -17,11 +17,11 @@
    }
 }
 @media screen and (max-width:800px) {
-   .logo{
+   .logo {
       margin-left: 20px;
    }
 }
-   @media screen and (max-width:567px) {
+@media screen and (max-width:567px) {
    .logo__link {
       strong {
          font-size: 14px;
@@ -37,8 +37,7 @@
       width: 38px;
       height: 38px;
    }
-   .logo__link strong{
-      
+   .logo__link strong {
       font-size: 20px;
       line-height: 26px;
    }

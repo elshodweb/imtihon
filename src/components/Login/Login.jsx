@@ -1,13 +1,13 @@
-import "./Login.scss"
-import React from 'react'
-import Logo from "./../Logo/Logo"
-import { useState } from "react"
+import "./Login.scss";
+import React from 'react';
+import Logo from "./../Logo/Logo";
+import { useState } from "react";
 import axios from "../../lib/axios";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 function Login() {
    const navigate = useNavigate();
-   const [showModal,setShowModal]= useState(false);
+   const [showModal, setShowModal] = useState(false);
    const storage = window.localStorage;
    const [login, setLogin] = useState({
       email: "",
@@ -24,19 +24,18 @@ function Login() {
          .then(({ data }) => {
             storage.setItem("token", data.token)
             navigate("/home/1");
-         }).catch(() => { createModal()})
+         }).catch(() => { createModal() })
       setLogin({
          email: "",
          password: "",
       })
    }
-   const createModal = ()=>{
+   const createModal = () => {
       setShowModal(true);
       setTimeout(() => {
          setShowModal(false);
       }, 4000);
    }
-
    return (
       <div className='login'>
          <div className="container">

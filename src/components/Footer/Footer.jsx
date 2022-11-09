@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import logo from "./../../assets/icons/logo-light.svg"
-import "./Footer.scss"
+import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from "./../../assets/icons/logo-light.svg";
+import "./Footer.scss";
 function Footer() {
    return (
       <footer className='footer'>

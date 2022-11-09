@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import "./SinglePost.scss";
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Outlet, useNavigate, useParams } from 'react-router-dom'
+import { Outlet, useNavigate, useParams } from 'react-router-dom';
 import axios from '../../lib/axios';
-import clap from "./../../assets/icons/clap.svg"
-import share from "./../../assets/icons/share.svg"
-import time from "./../../assets/icons/time.svg"
+import clap from "./../../assets/icons/clap.svg";
+import share from "./../../assets/icons/share.svg";
+import time from "./../../assets/icons/time.svg";
 import { useDispatch } from 'react-redux';
 import { getData } from '../../store/dataSlice';
 import * as dayjs from 'dayjs';

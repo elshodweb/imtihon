@@ -1,22 +1,21 @@
-import Spin from "./../../assets/img/Spin.gif"
-import React from 'react'
-import right from "./../../assets/icons/right.svg"
-import left from "./../../assets/icons/left.svg"
-import facebook from "./../../assets/icons/facebook.svg"
-import github from "./../../assets/icons/github.svg"
-import twiter from "./../../assets/icons/twiter.svg"
-import linkedin from "./../../assets/icons/linkedin.svg"
-import "./List.scss"
-import { Outlet, useNavigate, } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
-import { useEffect } from 'react'
-import axios from '../../lib/axios'
-import { useSelector, useDispatch } from 'react-redux'
-import { getData } from '../../store/dataSlice'
-import { useState } from 'react'
-
+import Spin from "./../../assets/img/Spin.gif";
+import React from 'react';
+import right from "./../../assets/icons/right.svg";
+import left from "./../../assets/icons/left.svg";
+import facebook from "./../../assets/icons/facebook.svg";
+import github from "./../../assets/icons/github.svg";
+import twiter from "./../../assets/icons/twiter.svg";
+import linkedin from "./../../assets/icons/linkedin.svg";
+import "./List.scss";
+import { Outlet, useNavigate, } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import axios from '../../lib/axios';
+import { useSelector, useDispatch } from 'react-redux';
+import { getData } from '../../store/dataSlice';
+import { useState } from 'react';
 function List() {
-   const dispatch = useDispatch()
+   const dispatch = useDispatch();
    const data = useSelector(state => state.data.data)
    const { category } = useParams();
    const navigate = useNavigate();
@@ -75,9 +74,8 @@ function List() {
                   </ul>
                </aside>
                <div className="posts">
-                  <h2 className="posts__title"> {load ? <span className='loading'><img src={Spin} alt="spin" /> Loading...</span>:<span>Recent Posts</span>}</h2>
+                  <h2 className="posts__title"> {load ? <span className='loading'><img src={Spin} alt="spin" /> Loading...</span> : <span>Recent Posts</span>}</h2>
                   <div className="posts__wrapper">
-
                      {
                         data.length > 0 && data.map((item) => <Outlet key={item.id} context={[item]} />)
                      }

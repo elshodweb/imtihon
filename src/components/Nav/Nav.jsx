@@ -5,23 +5,23 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "./Nav.scss";
 import { toCapitalize } from "../../lib/toCapitalize";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { setCategory } from "../../store/categorySlice";
 function Nav() {
    const [navs, setNavs] = useState([])
    const dispatch = useDispatch();
-   const [isOpenNav,setIsOpenNav]= useState(false)
+   const [isOpenNav, setIsOpenNav] = useState(false)
    useEffect(() => {
       axios.get("/category")
-      .then(({data}) =>{
-         let category = data
-         dispatch(setCategory({category}))
-          setNavs(data)
+         .then(({ data }) => {
+            let category = data
+            dispatch(setCategory({ category }))
+            setNavs(data)
          })
-      .catch(err => console.log(err))
-      .finally()
+         .catch(err => console.log(err))
+         .finally()
    }, [dispatch])
-   const openClose =()=>{
+   const openClose = () => {
       setIsOpenNav(!isOpenNav);
    }
    return (
@@ -31,11 +31,11 @@ function Nav() {
          </button>
          <ul className={`nav__list ${isOpenNav && "open"}`}>
             {
-               navs.length>0 && (navs.slice(0,4)).map((item)=>{
-                  return(<Link onClick={()=>{isOpenNav && setIsOpenNav(false)}} key={item.id} to={"/home/"+item.id} className="nav__link"><li className="nav__item">{toCapitalize(item.name)}</li></Link>)
+               navs.length > 0 && (navs.slice(0, 4)).map((item) => {
+                  return (<Link onClick={() => { isOpenNav && setIsOpenNav(false) }} key={item.id} to={"/home/" + item.id} className="nav__link"><li className="nav__item">{toCapitalize(item.name)}</li></Link>)
                })
             }
-            </ul>
+         </ul>
       </div>
    )
 }

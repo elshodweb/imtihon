@@ -48,15 +48,12 @@
    &::-webkit-scrollbar {
       width: 10px;
    }
-   /* Track */
    &::-webkit-scrollbar-track {
       background: #f1f1f1;
    }
-   /* Handle */
    &::-webkit-scrollbar-thumb {
       background: #888;
    }
-   /* Handle on hover */
    &::-webkit-scrollbar-thumb:hover {
       background: #555;
    }
@@ -116,7 +113,6 @@
    font-size: 12px;
    line-height: 16px;
    white-space: nowrap;
-   /* Neutral / Dark Grey */
    color: #777777;
 }
 .search__btn {
